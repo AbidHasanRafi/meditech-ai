@@ -107,13 +107,13 @@ const Chat = () => {
             </div>
           ))}
         </div>
-        <form onSubmit={handleSendMessage} className="flex">
+        <form onSubmit={handleSendMessage} className="flex w-full">
           <input
             type="text"
             value={inputMessage}
             onChange={(e) => setInputMessage(e.target.value)}
             placeholder="Type your message..."
-            className="flex-grow p-2 rounded-l-lg border border-gray-600 bg-gray-800 text-white focus:outline-none"
+            className="flex-grow p-2 rounded-l-lg border border-gray-600 bg-gray-800 text-white focus:outline-none w-full"
           />
           <button
             type="submit"

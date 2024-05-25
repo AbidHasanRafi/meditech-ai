@@ -1,5 +1,5 @@
-import React from "react";
 import { Helmet } from "react-helmet";
+import DiabetesPrediction from "./DiabetesPrediction";
 
 const Analyzer = () => {
   return (
@@ -7,7 +7,7 @@ const Analyzer = () => {
       <Helmet>
         <title>Analyzer</title>
       </Helmet>
-      <h1>This is Analyzer!</h1>
+      <DiabetesPrediction />
     </div>
   );
 };

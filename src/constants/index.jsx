@@ -4,6 +4,7 @@ import { GlobeLock } from "lucide-react";
 
 import abid from "../assets/profile-pictures/dev1.jpg";
 import partho from "../assets/profile-pictures/dev2.jpg";
+import najib from "../assets/profile-pictures/dev3.jpeg";
 
 export const navItems = [
   { label: "Home", href: "/" },
@@ -16,7 +17,7 @@ export const navItems = [
 export const teams = [
   {
     user: "Md. Abid Hasan Rafi",
-    title: "Lead ML Developer",
+    title: "ML Application Developer",
     image: abid,
     github: "https://github.com/AbidHasanRafi/",
     linkedin: "https://www.linkedin.com/in/abid-hasan-rafi/",
@@ -29,6 +30,14 @@ export const teams = [
     github: "https://github.com/InquietoPartho/",
     linkedin: "https://www.linkedin.com/in/urslovelypartho/",
     text: "The development of MediTech.ai has been a remarkable journey. The team's expertise in machine learning and healthcare has been crucial in creating a groundbreaking AI assistant.",
+  },
+  {
+    user: "Md. Najib-Ul-Azam Mahi",
+    title: "ML Tech Analyst",
+    image: najib,
+    github: "https://github.com/itsnajibul/",
+    linkedin: "https://bd.linkedin.com/in/itsnajibul/",
+    text: "The MediTech.ai project has been an extraordinary journey. By harnessing the team's deep expertise in machine learning and healthcare, they have successfully created a pioneering AI assistant that is set to revolutionize the medical field.",
   },
 ];
 
