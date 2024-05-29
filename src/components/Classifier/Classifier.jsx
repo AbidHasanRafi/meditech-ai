@@ -1,5 +1,5 @@
-import React from "react";
 import { Helmet } from "react-helmet";
+import PneumoniaDetection from "./PneumoniaDetection";
 
 const Classifier = () => {
   return (
@@ -8,6 +8,7 @@ const Classifier = () => {
         <title>Classifier</title>
       </Helmet>
       <h1>This is Classifier!</h1>
+      <PneumoniaDetection />
     </div>
   );
 };

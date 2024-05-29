@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 
 const DiabetesPrediction = () => {
@@ -25,9 +25,11 @@ const DiabetesPrediction = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/predict/diabetes", formData);
-      const result = await axios.get("http://localhost:5000/result");
-      setPrediction(result.data.prediction);
+      const response = await axios.post(
+        "http://127.0.0.1:5000/predict/diabetes",
+        formData
+      );
+      setPrediction(response.data.prediction);
     } catch (error) {
       console.error("There was an error making the request", error);
     }
@@ -43,142 +45,35 @@ const DiabetesPrediction = () => {
       </h5>
       <form onSubmit={handleSubmit} className="max-w-lg mx-auto">
         <div className="flex flex-wrap -mx-3 mb-6">
-          <div className="w-full md:w-1/2 px-3 mb-6">
-            <label
-              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              htmlFor="pregnancies"
-            >
-              Number of Pregnancies
-            </label>
-            <input
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-              type="number"
-              name="pregnancies"
-              value={formData.pregnancies}
-              onChange={handleChange}
-              placeholder="eg. 0 for male"
-              required
-            />
-          </div>
-          <div className="w-full md:w-1/2 px-3 mb-6">
-            <label
-              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              htmlFor="glucose"
-            >
-              Glucose Level (mg/dL)
-            </label>
-            <input
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-              type="number"
-              name="glucose"
-              value={formData.glucose}
-              onChange={handleChange}
-              placeholder="eg. 80"
-              required
-            />
-          </div>
-          <div className="w-full md:w-1/2 px-3 mb-6">
-            <label
-              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              htmlFor="bloodpressure"
-            >
-              Blood Pressure (mmHg)
-            </label>
-            <input
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-              type="number"
-              name="bloodpressure"
-              value={formData.bloodpressure}
-              onChange={handleChange}
-              placeholder="eg. 80"
-              required
-            />
-          </div>
-          <div className="w-full md:w-1/2 px-3 mb-6">
-            <label
-              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              htmlFor="skinthickness"
-            >
-              Skin Thickness (mm)
-            </label>
-            <input
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-              type="number"
-              name="skinthickness"
-              value={formData.skinthickness}
-              onChange={handleChange}
-              placeholder="eg. 20"
-              required
-            />
-          </div>
-          <div className="w-full md:w-1/2 px-3 mb-6">
-            <label
-              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              htmlFor="insulin"
-            >
-              Insulin Level (IU/mL)
-            </label>
-            <input
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-              type="number"
-              name="insulin"
-              value={formData.insulin}
-              onChange={handleChange}
-              placeholder="eg. 80"
-              required
-            />
-          </div>
-          <div className="w-full md:w-1/2 px-3 mb-6">
-            <label
-              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              htmlFor="bmi"
-            >
-              Body Mass Index (kg/m²)
-            </label>
-            <input
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-              type="number"
-              name="bmi"
-              value={formData.bmi}
-              onChange={handleChange}
-              placeholder="eg. 23.1"
-              required
-            />
-          </div>
-          <div className="w-full md:w-1/2 px-3 mb-6">
-            <label
-              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              htmlFor="dpf"
-            >
-              Diabetes Pedigree Function
-            </label>
-            <input
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-              type="text"
-              name="dpf"
-              value={formData.dpf}
-              onChange={handleChange}
-              placeholder="eg. 0.52"
-              required
-            />
-          </div>
-          <div className="w-full md:w-1/2 px-3 mb-6">
-            <label
-              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              htmlFor="age"
-            >
-              Patient Age in Years
-            </label>
-            <input
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-              type="number"
-              name="age"
-              value={formData.age}
-              onChange={handleChange}
-              placeholder="eg. 34"
-              required
-            />
-          </div>
+          {[
+            "pregnancies",
+            "glucose",
+            "bloodpressure",
+            "skinthickness",
+            "insulin",
+            "bmi",
+            "dpf",
+            "age",
+          ].map((field, index) => (
+            <div key={index} className="w-full md:w-1/2 px-3 mb-6">
+              <label
+                className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                htmlFor={field}
+              >
+                {field.charAt(0).toUpperCase() +
+                  field.slice(1).replace(/([A-Z])/g, " $1")}
+              </label>
+              <input
+                className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                type={field === "bmi" || field === "dpf" ? "text" : "number"}
+                name={field}
+                value={formData[field]}
+                onChange={handleChange}
+                placeholder={`Enter ${field}`}
+                required
+              />
+            </div>
+          ))}
         </div>
         <button
           type="submit"
@@ -187,9 +82,14 @@ const DiabetesPrediction = () => {
           Predict
         </button>
       </form>
-      {prediction && (
+      {prediction !== null && (
         <div className="text-center mt-8">
-          <h3 className="text-xl">Prediction Result: {prediction}</h3>
+          <h3 className="text-xl">
+            Prediction Result:{" "}
+            {prediction === 1
+              ? "Likely to have diabetes"
+              : "Unlikely to have diabetes"}
+          </h3>
         </div>
       )}
     </div>

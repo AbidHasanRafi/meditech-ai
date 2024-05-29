@@ -8,6 +8,8 @@ import Analyzer from "./components/Analyzer/Analyzer";
 import Classifier from "./components/Classifier/Classifier";
 import Assist from "./components/Assist/Assist";
 import About from "./components/About/About";
+import DiabetesPrediction from "./components/Analyzer/DiabetesPrediction";
+import SentimentAnalysis from "./components/Analyzer/SentimentAnalysis";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +35,14 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+      },
+      {
+        path: "/analyzer/diabetes",
+        element: <DiabetesPrediction />,
+      },
+      {
+        path: "/analyzer/sentiment",
+        element: <SentimentAnalysis />,
       },
     ],
   },
