@@ -5,7 +5,7 @@ import animationData from "../../assets/chat_1.json";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import Assist from "./Assist";
 
-const API_KEY = "AIzaSyCgpCbkuxRU_0yPAs9VTHS8Uio8JmDJg48";
+const API_KEY = import.meta.env.VITE_API_KEY;
 const genAI = new GoogleGenerativeAI(API_KEY);
 
 const Chat = () => {
