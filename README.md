@@ -12,6 +12,20 @@ Visit our website: [MediTech.ai](https://hstu-meditech-ai.web.app/)
 
 GitHub Repository: [MediTech.ai Repository](https://github.com/AbidHasanRafi/meditech-ai)
 
+## Features
+
+- **Personalized Support**: Customized advice and coping strategies based on user inputs.
+- **Resource Library**: A wealth of articles, exercises, and tools for mental health education and empowerment.
+- **Confidential and Secure**: Robust security measures to protect user information.
+- **Community and Connection**: Supportive online community for shared experiences and mutual support.
+
+## Technologies
+
+- **Tailwind**
+- **React**
+- **Node**
+- **MongoDB**
+
 ## Installation
 
 To get a local copy up and running, follow these simple steps.
