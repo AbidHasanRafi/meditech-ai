@@ -4,7 +4,7 @@ import Lottie from "lottie-react";
 import animationData from "../../assets/chat_2.json";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-const API_KEY = "AIzaSyCgpCbkuxRU_0yPAs9VTHS8Uio8JmDJg48";
+const API_KEY = import.meta.env.VITE_API_KEY;
 const genAI = new GoogleGenerativeAI(API_KEY);
 
 const MultimodalInput = () => {
